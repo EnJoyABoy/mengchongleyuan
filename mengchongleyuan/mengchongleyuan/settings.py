@@ -181,3 +181,8 @@ LOGGING = {
         },
     }
 }
+
+# 告诉系统在哪查找静态文件
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
