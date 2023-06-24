@@ -188,3 +188,8 @@ LOGGING = {
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+#通过提供一个值给AUTH USER MODEL设置，
+# 指向自定义的模型，Django允许你覆盖默认的User模型
+# AUTH_USER_MODEL = '子应用名.模型名'
+AUTH_USER_MODEL = 'users.User'
