@@ -4,7 +4,7 @@ from django import http
 from apps.users.models import User
 import re
 import logging
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth import authenticate
 
 
@@ -108,3 +108,17 @@ class UsernameCountView(View):
             return http.JsonResponse({'code':400,'errmsg':'数据库异常'})
         # 返回相应
         return http.JsonResponse({'code':0,'count':count})
+
+# 退出登入，用户点击退出,就把登陆的信息删除
+class LogoutView(View):
+
+    def get(self,request):
+        # 系统其他也给我们提供了退出的方法
+        logout(request)
+
+        # 退出之后,我们要跳转到指定页面 还跳转到首页
+        response = redirect(reverse('contents:index'))
+        # 需要额外删除cookie中的name,因为我们首页的用户信息展示是通过username来判断
+        response.delete_cookie('username')
+
+        return response
