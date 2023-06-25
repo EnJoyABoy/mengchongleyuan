@@ -201,3 +201,8 @@ AUTHENTICATION_BACKENDS = [
     # 'django.contrib.auth.backends.ModelBackend',  # 默认方式
     'apps.users.utils.UsernameMobileModelBackend'
 ]
+
+# LOGIN_URL 的默认值是 : accounts/login/
+# 我们只需要修改这个配置信息就可以，修改成符合我们的路由就可以
+LOGIN_URL ='/login/'
+
