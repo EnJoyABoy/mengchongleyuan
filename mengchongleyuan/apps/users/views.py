@@ -4,6 +4,8 @@ from django import http
 from apps.users.models import User
 import re
 import logging
+from django.contrib.auth import login
+from django.contrib.auth import authenticate
 
 
 logger = logging.getLogger('django')
@@ -58,6 +60,41 @@ class LoginView(View):
 
     def get(self, request):
         return render(request, 'login.html')
+
+    def post(self, request):
+        # 后端需要接收数据
+        username = request.POST.get('username')
+        passwrod = request.POST.get('password')
+        # 判断参数是否齐全
+        if not all([username, passwrod]):
+            return http.HttpResponseBadRequest('缺少必须的参数')
+        # 判断用户名是否符合规则
+        if not re.match(r'^[a-zA-Z0-9_-]{5,20}$', username):
+            return http.HttpResponseBadRequest('用户名不符合规则')
+        # 判断密码是否符合规则
+        if not re.match(r'', passwrod):
+            return http.HttpResponseBadRequest('密码不符合规则')
+        # 验证用户名和密码：django的认证后端或自己查询数据库验证
+        # 如果用户名和密码正确,则返回user，否则返回None
+        user = authenticate(username=username, password=passwrod)
+
+        if user is not None:
+            # 如果验证成功则登陆,状态保持
+            login(request, user)
+            # 如果有next参数,则跳转到指定页面
+            # 如果没有next参数,则跳转到首页
+            next = request.GET.get('next')
+            if next:
+                response = redirect(next)
+            else:
+                response = redirect(reverse('contents:index'))
+            # 设置cookie
+            response.set_cookie('username', user.username, max_age=14 * 24 * 3600)
+            return response
+        else:
+            # 登陆失败
+            return render(request, 'login.html', context={'account_errmsg': '用户名或密码错误'})
+
 
 # 在注册时Vue发起ajax请求验证数据库中是否有相同用户名
 class UsernameCountView(View):
