@@ -5,6 +5,10 @@
 	<title>萌宠乐园-首页</title>
 	<link rel="stylesheet" type="text/css" href="../static/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <script type="text/javascript" src="../static/js/host.js"></script>
+	<script type="text/javascript" src="../static/js/common.js"></script>
+	<script type="text/javascript" src="../static/js/vue-2.5.16.js"></script>
+    <script type="text/javascript" src="../static/js/axios-0.18.0.min.js"></script>
 </head>
 <body>
 	<div id="app">
@@ -12,7 +16,16 @@
 			<div class="header">
 				<div class="welcome fl">欢迎来到萌宠乐园!</div>
 				<div class="fr">
-					<div class="login_btn fl">
+					<div v-if="username" class="login_btn fl">
+						欢迎您：<em>[[ username ]]</em>
+						<span>|</span>
+						<a href="#">发布</a>
+						<span>|</span>
+						<a href="#">个人中心</a>
+						<span>|</span>
+						<a href="#">退出</a>
+					</div>
+					<div v-else class="login_btn fl">
 						<a href="login.html">登录</a>
 						<span>|</span>
 						<a href="register.html">注册</a>
@@ -73,5 +86,6 @@
 			<p>电话：******    备案许可证号：*******号</p>
 		</div>
 	</div>
+	<script type="text/javascript" src="../static/js/index.js"></script>
 </body>
 </html>
