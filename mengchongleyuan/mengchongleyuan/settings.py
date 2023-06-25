@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'apps.contents.apps.ContentsConfig',
     'apps.users.apps.UsersConfig',
     'apps.areas.apps.AreasConfig',
+    'apps.blogs.apps.BlogsConfig',
 ]
 
 MIDDLEWARE = [
