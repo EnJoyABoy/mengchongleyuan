@@ -193,3 +193,9 @@ STATICFILES_DIRS = [
 # 指向自定义的模型，Django允许你覆盖默认的User模型
 # AUTH_USER_MODEL = '子应用名.模型名'
 AUTH_USER_MODEL = 'users.User'
+
+# 修改默认的认证后端
+AUTHENTICATION_BACKENDS = [
+    # 'django.contrib.auth.backends.ModelBackend',  # 默认方式
+    'apps.users.utils.UsernameMobileModelBackend'
+]
