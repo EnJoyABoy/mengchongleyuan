@@ -17,7 +17,7 @@
 					<a href="index.html">首页</a>
 				</div>
 				<div class="reg_form clearfix">
-					<form method="post" class="register_form">
+					<form method="post" class="register_form" @submit="on_submit">
 						{{ csrf_input }}
 						<ul>
 							<li>
@@ -33,13 +33,13 @@
 							<li>
                                 <div class="form_group">
                                     <label>地址：</label>
-                                    <select v-model="form_address.province_id">
+                                    <select name="province" v-model="form_address.province_id">
                                         <option v-for="province in provinces" :value="province.id">[[ province.name ]]</option>
                                     </select>
-                                    <select v-model="form_address.city_id">
+                                    <select name="city" v-model="form_address.city_id">
                                         <option v-for="city in cities" :value="city.id">[[ city.name ]]</option>
                                     </select>
-                                    <select v-model="form_address.district_id">
+                                    <select name="district" v-model="form_address.district_id">
                                         <option v-for="district in districts" :value="district.id">[[ district.name ]]</option>
                                     </select>
                                 </div>
