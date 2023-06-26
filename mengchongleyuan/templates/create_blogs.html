@@ -21,13 +21,13 @@
 						<ul>
 							<li>
 								<label>内容:</label>
-								<input type="text" name="blogs" id="blogs">
-								<span class="error_tip">请输入您的需求</span>
+								<input type="text" name="blogs" id="blogs" v-model="contents" @blur="check_contents">
+								<span class="error_tip" v-show="error_contents">请输入您的需求</span>
 							</li>
 							<li>
 								<label>时间:</label>
-								<input type="text" name="blogs_time" id="blogs_time">
-								<span class="error_tip">请输入您需要需求的时间</span>
+								<input type="text" name="blogs_time" id="blogs_time" v-model="time" @blur="check_time">
+								<span class="error_tip" v-show="error_time">请输入您需要需求的时间</span>
 							</li>
 							<li>
                                 <div class="form_group">
@@ -45,8 +45,8 @@
 							</li>
 							<li>
 								<label>详细地址:</label>
-								<input type="text" name="blogs_address" id="blogs_address">
-								<span class="error_tip">请输入详细地址</span>
+								<input type="text" name="blogs_address" id="blogs_address" v-model="address" @blur="check_address">
+								<span class="error_tip" v-show="error_address">请输入详细地址</span>
 							</li>
 							<li class="reg_sub">
 								<input type="submit" value="创 建">
@@ -72,5 +72,7 @@
 		<p>萌宠乐园******公司</p>
 		<p>电话：******    备案许可证号：*******号</p>
 	</div>
+	<script type="text/javascript" src="../static/js/host.js"></script>
+	<script type="text/javascript" src="../static/js/create_blogs.js"></script>
 </body>
 </html>
