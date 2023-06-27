@@ -52,10 +52,11 @@
 					<li class="interval">|</li>
 					<li><a href="">发布</a></li>
 				</ul>
+
 			</div>
 		</div>
 
-		<div class="list_title clearfix">
+		<div class="list_title clearfix navbar">
 			<h3 class="fl" id="model01">筛选</h3>
 			<div class="fr form_group">
 				<label>*所在地区：</label>
@@ -69,6 +70,20 @@
 					<option>县</option>
 				</select>
 			</div>
+		</div>
+		<div class="navbar">
+			{% for blog in blogs %}
+			<div style="height: 100px;font-size: 20px;">
+				需求：{{ blog.contents }}
+				<br>
+				用户：{{ blog.user }}
+				<br>
+				时间：{{ blog.times }}
+				<br>
+				地址：{{ blog.province }} {{ blog.city }} {{ blog.district }} {{ blog.address }}
+			</div>
+			<hr>
+			{% endfor %}
 		</div>
 
 
