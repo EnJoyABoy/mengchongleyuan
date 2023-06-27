@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.shortcuts import render
 from django.views import View
 from apps.blogs.models import Blogs
+from apps.users.models import User
 
 
 class IndexView(View):
@@ -20,7 +21,8 @@ class IndexView(View):
                 'city': blog.city,
                 'district': blog.district,
                 'address': blog.address,
-                'user': blog.user
+                'user': blog.user,
+                'mobile': User.objects.filter(username=blog.user)[0].mobile
             })
         context = {
             'blogs': blog_list

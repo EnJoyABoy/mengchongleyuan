@@ -60,10 +60,12 @@
 		</div>
 		<div class="navbar">
 			{% for blog in blogs %}
-			<div style="height: 100px;font-size: 20px;">
+			<div style="font-size: 20px;">
 				需求：{{ blog.contents }}
 				<br>
 				用户：{{ blog.user }}
+				<br>
+				联系方式：{{ blog.mobile }}
 				<br>
 				时间：{{ blog.times }}
 				<br>

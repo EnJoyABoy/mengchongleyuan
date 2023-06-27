@@ -142,7 +142,8 @@ class MyblogsView(LoginRequiredMixin, View):
                     'city': blog.city,
                     'district': blog.district,
                     'address': blog.address,
-                    'user': blog.user
+                    'user': blog.user,
+                    'mobile': User.objects.filter(username=blog.user)[0].mobile
                 })
         print(blog_list)
 
