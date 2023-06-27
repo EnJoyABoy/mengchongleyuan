@@ -48,7 +48,7 @@ html,body{height:100%}
 
 /* logo、搜索框、购物车样式 */
 
-.search_bar{width:1200px;height:115px;margin:0 auto;}
+.search_bar{width:1200px;height:115px;margin:0 auto;background: url("../images/mengchong.jpg")}
 .logo{width:150px;height:59px;margin:29px 0 0 17px;}
 
 .search_wrap{width:618px;height:60px;margin:34px 0 0 124px;}
@@ -657,9 +657,9 @@ html,body{height:100%}
 /* 登录页 */
 .login_top{width:960px;height:130px;margin:0 auto;}
 .login_logo{display:block;width:193px;height:76px;margin-top:30px;}
-.login_form_bg{height:480px;background-color:#810101}
+.login_form_bg{height: 600px; background: url('../images/mengchong.jpg');display: flex; justify-content: center; align-items: center;}
 .no-mp{margin-top:0px;}
-.login_form_wrap{width:1000px;height:480px;margin:0 auto;display: flex;}
+.login_form_wrap{width:1000px;height:480px;margin:0 auto;display: flex;justify-content: center; align-items: center;}
 .login_banner{width:500px;height:386px;background:url(../images/login_banner.png) no-repeat;margin-top:40px;}
 .slogan{width:30px;height:300px;font-size:24px;color:#f9dddd;text-align:center;line-height:30px;margin:65px 0 0 30px}
 .login_form{width:368px;height:378px;border:1px solid #c6c6c5;background-color:#fff; margin: auto;}
@@ -700,11 +700,19 @@ html,body{height:100%}
 
 /* 注册页面 */
 .register_con{
-	width:720px;
+	height:600px;
+	background: url('../images/mengchong.jpg');
 	overflow: hidden;
-	margin:50px auto 0;
-	background:url(../images/interval_line.png) 300px center no-repeat;
+	border:1px solid #c6c6c5;
+	background-color:#fff;
+	margin: auto;
 	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.create{
+	background: url('../images/mengchong.jpg');height: 600px;display: flex;justify-content: center; align-items: center;
 }
 
 .l_con{width:300px;}
@@ -713,7 +721,7 @@ html,body{height:100%}
 .reg_banner{width:251px;height:329px;background:url(../images/register_banner.png) no-repeat;float:right; margin:20px 10px 0 0;opacity:0.5}
 
 
-.r_con{width:420px;overflow:hidden;margin: auto;}
+.r_con{width:420px;overflow:hidden;margin: auto;border:1px solid #c6c6c5;background-color:#fff; }
 .reg_title{width:380px;height:50px;float:left;margin-left:30px;border-bottom:1px solid #e0e0e0}
 .reg_title h1{height:50px;line-height:50px;float:left;font-size:24px;color:#a8a8a8;font-weight:bold;}
 .reg_title a{float:right;height:20px;line-height:20px;font-size:16px;color:#c40000;padding-right:20px;background:url(../images/icons02.png) 35px 3px no-repeat;margin-top:15px}
