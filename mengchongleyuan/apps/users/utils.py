@@ -2,6 +2,7 @@ from django.contrib.auth.backends import ModelBackend
 import re
 from apps.users.models import User
 
+
 def get_user_by_username(username):
     try:
         if re.match(r'1[3-9]\d{9}', username):

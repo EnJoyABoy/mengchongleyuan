@@ -171,7 +171,7 @@ LOGGING = {
         'file': {  # 向文件中输出日志
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/mengchongleyuan.log'), # 日志文件的位置
+            'filename': os.path.join(BASE_DIR, 'logs/mengchongleyuan.log'),  # 日志文件的位置
             'maxBytes': 300*1024*1024,
             'backupCount': 10,
             'formatter': 'verbose'
@@ -191,7 +191,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-#通过提供一个值给AUTH USER MODEL设置，
+# 过提供一个值给AUTH USER MODEL设置，
 # 指向自定义的模型，Django允许你覆盖默认的User模型
 # AUTH_USER_MODEL = '子应用名.模型名'
 AUTH_USER_MODEL = 'users.User'
@@ -204,5 +204,4 @@ AUTHENTICATION_BACKENDS = [
 
 # LOGIN_URL 的默认值是 : accounts/login/
 # 我们只需要修改这个配置信息就可以，修改成符合我们的路由就可以
-LOGIN_URL ='/login/'
-
+LOGIN_URL = '/login/'

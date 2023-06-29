@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
 # 使用继承的方式定义用户模型，额外添加电话列
 class User(AbstractUser):
     mobile = models.CharField(max_length=11, unique=True, verbose_name='手机号')

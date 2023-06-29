@@ -8,7 +8,9 @@ from apps.areas.models import Area
 
 
 logger = logging.getLogger('django')
-class CewateblogsView(LoginRequiredMixin, View):
+
+
+class CreateblogsView(LoginRequiredMixin, View):
 
     # 创建博客需求
     def get(self, request):

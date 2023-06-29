@@ -1,12 +1,10 @@
 from django.shortcuts import render
-
-# Create your views here.
-from django.shortcuts import render
 from django.views import View
 from apps.blogs.models import Blogs
 from apps.users.models import User
 
 
+# Create your views here.
 class IndexView(View):
 
     # 主页面展示

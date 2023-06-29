@@ -1,8 +1,7 @@
 from django.db import models
 
+
 # Create your models here.
-
-
 class Blogs(models.Model):
     user = models.ForeignKey('users.User', on_delete=models.CASCADE, related_name='blogs', verbose_name='用户')
     province = models.ForeignKey('areas.Area', on_delete=models.CASCADE, related_name='province_addresses', verbose_name='省')
