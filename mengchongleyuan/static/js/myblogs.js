@@ -5,9 +5,27 @@ var vm = new Vue({
     data: {
         host,
         username:'',
+        blogs:[]
     },
     mounted(){
+        // 获取博客数据
+        this.get_blogs();
         this.username=getCookie('username');
         console.log(this.username);
     },
+    methods: {
+        // 获取博客数据
+        get_blogs() {
+            var url = this.host + '/getmyblogs/';
+            axios.get(url, {
+                responseType: 'json',
+            })
+                .then(response => {
+                    this.blogs = response.data.blogs;
+                })
+                .catch(error => {
+                    console.log(error.response);
+                })
+        }
+    }
 });

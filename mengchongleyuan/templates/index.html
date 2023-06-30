@@ -59,20 +59,18 @@
 			</div>
 		</div>
 		<div class="navbar">
-			{% for blog in blogs %}
-			<div style="font-size: 20px;">
-				需求：{{ blog.contents }}
+			<div v-for="blog in blogs">
+				需求：[[ blog.contents ]]
 				<br>
-				用户：{{ blog.user }}
+				用户：[[ blog.user ]]
 				<br>
-				联系方式：{{ blog.mobile }}
+				联系方式：[[ blog.mobile ]]
 				<br>
-				时间：{{ blog.times }}
+				时间：[[ blog.times ]]
 				<br>
-				地址：{{ blog.province }} {{ blog.city }} {{ blog.district }} {{ blog.address }}
+				地址：[[ blog.province ]] [[ blog.city ]] [[ blog.district ]] [[ blog.address ]]
+				<hr>
 			</div>
-			<hr>
-			{% endfor %}
 		</div>
 
 

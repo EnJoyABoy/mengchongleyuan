@@ -5,6 +5,7 @@ from django import http
 from apps.blogs.models import Blogs
 import logging
 from apps.areas.models import Area
+from apps.users.models import User
 
 
 logger = logging.getLogger('django')
@@ -53,4 +54,53 @@ class CreateblogsView(LoginRequiredMixin, View):
         return redirect(reverse('contents:index'))
 
 
+# Vue发起aja请求到这读取数据库内容并返回至vue中渲染前端页面（首页）
+class GetblogsView(View):
+
+    def get(self, request):
+        # 获取博客信息
+        blogs = Blogs.objects.filter()
+        blog_list = []
+        for blog in blogs:
+            blog_list.append({
+                'contents': blog.contents,
+                'times': blog.times,
+                'province': str(blog.province),
+                'city': str(blog.city),
+                'district': str(blog.district),
+                'address': blog.address,
+                'user': str(blog.user),
+                'mobile': User.objects.filter(username=blog.user)[0].mobile
+            })
+        context = {
+            'blogs': blog_list
+        }
+        # 返回数据至Vue中
+        return http.JsonResponse(context)
+
+class GetmyblogsView(LoginRequiredMixin, View):
+
+    def get(self, request):
+        # 获取用户信息
+        user = request.user
+        # 如果是登入状态
+        blog_list = []
+        if user.is_authenticated:
+            blogs = Blogs.objects.filter(user=user)
+            for blog in blogs:
+                blog_list.append({
+                    'contents': blog.contents,
+                    'times': blog.times,
+                    'province': str(blog.province),
+                    'city': str(blog.city),
+                    'district': str(blog.district),
+                    'address': blog.address,
+                    'user': str(blog.user),
+                    'mobile': User.objects.filter(username=blog.user)[0].mobile
+                })
+        context = {
+            'blogs': blog_list
+        }
+        # 返回数据至Vue中
+        return http.JsonResponse(context)
 

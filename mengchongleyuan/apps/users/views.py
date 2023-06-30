@@ -131,27 +131,5 @@ class LogoutView(View):
 class MyblogsView(LoginRequiredMixin, View):
 
     def get(self, request):
-        # 获取用户信息
-        user = request.user
-        # 如果是登入状态
-        blog_list = []
-        if user.is_authenticated:
-            blogs = Blogs.objects.filter(user=user)
-            for blog in blogs:
-                blog_list.append({
-                    'contents': blog.contents,
-                    'times': blog.times,
-                    'province': blog.province,
-                    'city': blog.city,
-                    'district': blog.district,
-                    'address': blog.address,
-                    'user': blog.user,
-                    'mobile': User.objects.filter(username=blog.user)[0].mobile
-                })
-        print(blog_list)
-
-        context = {
-            'blogs': blog_list
-        }
-        return render(request, 'myblogs.html', context=context)
+        return render(request, 'myblogs.html')
 
