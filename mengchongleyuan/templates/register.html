@@ -3,22 +3,56 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>萌宠乐园-注册</title>
-	<link rel="stylesheet" type="text/css" href="../static/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/register.css">
+	<script type="text/javascript" src="../static/js/host.js"></script>
 	<script type="text/javascript" src="../static/js/vue-2.5.16.js"></script>
 	<script type="text/javascript" src="../static/js/axios-0.18.0.min.js"></script>
 </head>
 <body>
 	<div id="app">
-        <div class="register_con">
-			<div class="r_con fr">
-				<div class="reg_title clearfix">
-					<h1>用户注册</h1>
-					<a href="login.html">登录</a>
-					<a href="index.html">首页</a>
-				</div>
-				<div class="reg_form clearfix">
-					<form method="post" class="register_form" @submit="on_submit">
+		<div class="header">
+			<div class="header_left">
+				<div>欢迎来到萌宠乐园！</div>
+			</div>
+
+			<div v-if="username" class="header_right">
+				<ul>
+					<li class="header_link">
+						<a href="index.html">首页</a>
+					</li>
+					<li class="header_link">
+						<a href="create_blogs.html">发布</a>
+					</li>
+					<li class="header_link">
+						<a href="myblogs.html">我的发布</a>
+					</li>
+					<li class="header_link">
+						<a href="{{ url('users:logout') }}">退出</a>
+					</li>
+				</ul>
+			</div>
+			<div v-else class="header_right">
+				<ul>
+					<li class="header_link">
+						<a href="index.html">首页</a>
+					</li>
+					<li class="header_link">
+						<a href="login.html">登录</a>
+					</li>
+					<li class="header_link">
+						<a href="register.html">注册</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="body">
+			<div class="reg_form_bg">
+				<div class="reg_form">
+					<div class="reg_title">
+						<h1>用户注册</h1>
+					</div>
+					<form method="post" @submit="on_submit">
 						{{ csrf_input }}
 						<ul>
 							<li>
@@ -65,24 +99,21 @@
 					</form>
 				</div>
 			</div>
+			<div class="footer">
+				<div class="foot_link">
+					<a href="#">关于我们</a>
+					<span>|</span>
+					<a href="#">联系我们</a>
+					<span>|</span>
+					<a href="#">招聘人才</a>
+					<span>|</span>
+					<a href="#">友情链接</a>
+				</div>
+				<p>萌宠乐园******公司</p>
+				<p>电话：******    备案许可证号：*******号</p>
+			</div>
 		</div>
     </div>
-
-	<div class="footer">
-		<div class="foot_link">
-			<a href="#">关于我们</a>
-			<span>|</span>
-			<a href="#">联系我们</a>
-			<span>|</span>
-			<a href="#">招聘人才</a>
-			<span>|</span>
-			<a href="#">友情链接</a>
-		</div>
-		<p>萌宠乐园******公司</p>
-		<p>电话：******    备案许可证号：*******号</p>
-	</div>
-	<script type="text/javascript" src="../static/js/host.js"></script>
 	<script type="text/javascript" src="../static/js/register.js"></script>
-
 </body>
 </html>

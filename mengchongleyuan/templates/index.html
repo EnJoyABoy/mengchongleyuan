@@ -3,8 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>萌宠乐园-首页</title>
-	<link rel="stylesheet" type="text/css" href="../static/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/index.css">
     <script type="text/javascript" src="../static/js/host.js"></script>
 	<script type="text/javascript" src="../static/js/common.js"></script>
 	<script type="text/javascript" src="../static/js/vue-2.5.16.js"></script>
@@ -12,80 +11,70 @@
 </head>
 <body>
 	<div id="app">
-		<div class="header_con">
-			<div class="header">
-				<div class="welcome fl">欢迎来到萌宠乐园!</div>
-				<div class="fr">
-					<div v-if="username" class="login_btn fl">
-						欢迎您：<em>[[ username ]]</em>
-						<span>|</span>
+		<div class="header">
+			<div class="header_left">
+				<div>欢迎来到萌宠乐园！</div>
+			</div>
+
+			<div v-if="username" class="header_right">
+				<ul>
+					<li class="header_link">
+						<a href="index.html">首页</a>
+					</li>
+					<li class="header_link">
 						<a href="create_blogs.html">发布</a>
-						<span>|</span>
+					</li>
+					<li class="header_link">
 						<a href="myblogs.html">我的发布</a>
-						<span>|</span>
+					</li>
+					<li class="header_link">
 						<a href="{{ url('users:logout') }}">退出</a>
-					</div>
-					<div v-else class="login_btn fl">
+					</li>
+				</ul>
+			</div>
+			<div v-else class="header_right">
+				<ul>
+					<li class="header_link">
+						<a href="index.html">首页</a>
+					</li>
+					<li class="header_link">
 						<a href="login.html">登录</a>
-						<span>|</span>
+					</li>
+					<li class="header_link">
 						<a href="register.html">注册</a>
-					</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="body">
+			<div class="body_blogs_box">
+				<div v-for="blog in blogs" class="blogs">
+					需求：[[ blog.contents ]]
+					<br>
+					用户：[[ blog.user ]]
+					<br>
+					联系方式：[[ blog.mobile ]]
+					<br>
+					时间：[[ blog.times ]]
+					<br>
+					地址：[[ blog.province ]] [[ blog.city ]] [[ blog.district ]] [[ blog.address ]]
 				</div>
 			</div>
-		</div>
 
-		<div class="search_bar clearfix">
-			<div class="search_wrap fl">
-				<form method="get" action="/search/" class="search_con">
-					<input type="text" class="input_text fl" name="q" placeholder="搜索萌宠">
-					<input type="submit" class="input_btn fr" name="" value="搜索">
-				</form>
+			<div class="footer">
+				<div class="foot_link">
+					<a href="#">关于我们</a>
+					<span>|</span>
+					<a href="#">联系我们</a>
+					<span>|</span>
+					<a href="#">招聘人才</a>
+					<span>|</span>
+					<a href="#">友情链接</a>
+				</div>
+				<p>萌宠乐园******公司</p>
+				<p>电话：******    备案许可证号：*******号</p>
 			</div>
-		</div>
-
-		<div class="list_title clearfix navbar">
-			<h3 class="fl" id="model01">筛选</h3>
-			<div class="fr form_group">
-				<label>*所在地区：</label>
-				<select>
-					<option>省</option>
-				</select>
-				<select>
-					<option>市</option>
-				</select>
-				<select>
-					<option>县</option>
-				</select>
-			</div>
-		</div>
-		<div class="navbar">
-			<div v-for="blog in blogs">
-				需求：[[ blog.contents ]]
-				<br>
-				用户：[[ blog.user ]]
-				<br>
-				联系方式：[[ blog.mobile ]]
-				<br>
-				时间：[[ blog.times ]]
-				<br>
-				地址：[[ blog.province ]] [[ blog.city ]] [[ blog.district ]] [[ blog.address ]]
-				<hr>
-			</div>
-		</div>
-
-
-		<div class="footer">
-			<div class="foot_link">
-				<a href="#">关于我们</a>
-				<span>|</span>
-				<a href="#">联系我们</a>
-				<span>|</span>
-				<a href="#">招聘人才</a>
-				<span>|</span>
-				<a href="#">友情链接</a>
-			</div>
-			<p>萌宠乐园******公司</p>
-			<p>电话：******    备案许可证号：*******号</p>
 		</div>
 	</div>
 	<script type="text/javascript" src="../static/js/index.js"></script>

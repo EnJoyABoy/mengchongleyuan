@@ -1,0 +1,211 @@
+body{
+	margin:0;
+	padding:0;
+}
+/* 顶部样式 */
+.header{
+	background: #4e4e4e;
+	width: 100vw;
+	height: 40px;
+}
+
+.header_left{
+	float: left;
+	font-size: 20px;
+	margin-left: 2vw;
+	margin-top: 1vh;
+	color: #3eb8e9;
+}
+
+.header_right{
+	float: right;
+	height: 40px;
+}
+
+.header_right ul{
+	margin-top: 0;
+}
+
+.header_link{
+	margin-right: 3vw;
+	font-size: 25px;
+	display: inline-block;
+	position: relative;
+}
+
+.header_link a{
+	color: #3eb8e9;
+	text-decoration: none;
+}
+
+/*主体内容*/
+.body{
+	width: 100vw;
+	height: 94vh;
+	overflow: hidden;
+	background-image: url(../images/mengchong.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.login_form_bg{
+	width: 100vw;
+	height: 60vh;
+	margin-top: 15vh;
+}
+
+.login_form{
+	justify-content: center;
+	align-items: center;
+	width:368px;
+	height:378px;
+	border:1px solid #c6c6c5;
+	background-color:#fff;
+	margin: auto;
+	border-radius: 16px;
+}
+
+.login_title{
+	height:60px;
+	width:308px;
+	margin:10px auto;
+	border-bottom:1px solid #e0e0e0;
+}
+
+.form_input{
+	width:308px;
+	height:210px;
+	margin:20px auto;
+	position:relative;
+	display:block;
+}
+
+.name_input{
+	width:306px;
+	height:36px;
+	border:1px solid #e0e0e0;
+	background:280px -41px no-repeat #f8f8f8;
+	outline:none;
+	font-size:14px;
+	text-indent:10px;
+	position: absolute;
+	left:0;
+	top:0;
+}
+
+.pass_input{
+	width:306px;
+	height:36px;
+	border:1px solid #e0e0e0;
+	background:280px -95px no-repeat #f8f8f8;
+	outline:none;
+	font-size:14px;
+	text-indent:10px;
+	position: absolute;
+	left:0;
+	top:65px;
+}
+
+.user_error{
+	color:#f00;
+	position:absolute;
+	left:0;
+	top:43px;
+}
+
+.pwd_error{
+	color:#f00;
+	position:absolute;
+	left:0;
+	top:110px;
+}
+
+.input_submit{
+	width:100%;
+	height:40px;
+	position:absolute;
+	left:0;
+	top:180px;
+	background-color:#ff5757;
+	color:#fff;
+	font-size:22px;
+	border:0;
+	cursor:pointer;
+}
+
+.more_input{
+	position:absolute;
+	left:0;
+	top:130px;
+	width:100%
+}
+
+.more_input input{
+	float:left;
+	margin-top:5px;
+}
+
+.more_input label{
+	float:left;
+	margin-left:10px;
+}
+
+.third_party{
+	border-top:1px solid #e0e0e0;
+	margin-top:30px;
+}
+
+.qq_login{
+	float:left;
+	line-height:30px;
+	margin-left:15px;
+	margin-top:7px;
+	color:#666;
+	font-size:12px;
+	text-indent:22px;
+	background:url(../images/QQ-weixin.png) left 7px no-repeat;
+}
+
+.weixin_login{
+	float:left;
+	line-height:30px;
+	margin-left:15px;
+	margin-top:7px;
+	color:#666;
+	font-size:12px;
+	text-indent:22px;
+	background:url(../images/QQ-weixin.png) left -35px no-repeat;
+}
+
+.register_btn{
+	float:right;
+	line-height:30px;
+	margin-left:15px;
+	margin-top:7px;
+	color:#666;
+	font-size:12px;
+	text-indent:22px;
+	margin-right:15px;
+}
+
+/* 页尾 */
+.footer{
+	border-top:1px;
+	margin:30px 0;
+}
+
+.foot_link{
+	text-align:center;
+	margin-top:30px;
+}
+
+.foot_link a{
+	color: #f9f9f9;
+	text-decoration: none;
+}
+
+.footer p{
+	text-align:center;
+	margin-top:5px;
+	color: #f9f9f9;
+}

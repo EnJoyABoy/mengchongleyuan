@@ -13,6 +13,7 @@ var vm = new Vue({
         contents: '',
         time: '',
         address: '',
+        username: '',
         provinces: [],
         cities: [],
         districts: [],
@@ -25,6 +26,7 @@ var vm = new Vue({
         mounted(){
         // 获取省份数据
         this.get_provinces();
+        this.username=getCookie('username');
     },
     watch: {
         // 监听到省份id变化

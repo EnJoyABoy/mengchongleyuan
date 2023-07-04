@@ -3,77 +3,112 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>萌宠乐园-创建</title>
-	<link rel="stylesheet" type="text/css" href="../static/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/create_blogs.css">
+	<script type="text/javascript" src="../static/js/host.js"></script>
+	<script type="text/javascript" src="../static/js/common.js"></script>
 	<script type="text/javascript" src="../static/js/vue-2.5.16.js"></script>
 	<script type="text/javascript" src="../static/js/axios-0.18.0.min.js"></script>
 </head>
 <body>
 	<div id="app">
-        <div class="register_con">
-			<div class="r_con fr">
-				<div class="reg_title clearfix">
-					<h1>需求创建</h1>
-					<a href="index.html">首页</a>
+		<div class="header">
+			<div class="header_left">
+				<div>欢迎来到萌宠乐园！</div>
+			</div>
+
+			<div v-if="username" class="header_right">
+				<ul>
+					<li class="header_link">
+						<a href="index.html">首页</a>
+					</li>
+					<li class="header_link">
+						<a href="create_blogs.html">发布</a>
+					</li>
+					<li class="header_link">
+						<a href="myblogs.html">我的发布</a>
+					</li>
+					<li class="header_link">
+						<a href="{{ url('users:logout') }}">退出</a>
+					</li>
+				</ul>
+			</div>
+			<div v-else class="header_right">
+				<ul>
+					<li class="header_link">
+						<a href="index.html">首页</a>
+					</li>
+					<li class="header_link">
+						<a href="login.html">登录</a>
+					</li>
+					<li class="header_link">
+						<a href="register.html">注册</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="body">
+			<div class="create_form_bg">
+				<div class="create_form">
+					<div class="cre_title">
+						<h1>需求创建</h1>
+					</div>
+					<div class="cre_form">
+						<form method="post" @submit="on_submit">
+							{{ csrf_input }}
+							<ul>
+								<li>
+									<label>内容:</label>
+									<input type="text" name="blogs" id="blogs" v-model="contents" @blur="check_contents">
+									<span class="error_tip" v-show="error_contents">请输入您的需求</span>
+								</li>
+								<li>
+									<label>时间:</label>
+									<input type="text" name="blogs_time" id="blogs_time" v-model="time" @blur="check_time">
+									<span class="error_tip" v-show="error_time">请输入您需要需求的时间</span>
+								</li>
+								<li>
+									<div class="form_group">
+										<label>地址：</label>
+										<select name="province" v-model="form_address.province_id">
+											<option v-for="province in provinces" :value="province.id">[[ province.name ]]</option>
+										</select>
+										<select name="city" v-model="form_address.city_id">
+											<option v-for="city in cities" :value="city.id">[[ city.name ]]</option>
+										</select>
+										<select name="district" v-model="form_address.district_id">
+											<option v-for="district in districts" :value="district.id">[[ district.name ]]</option>
+										</select>
+									</div>
+								</li>
+								<li>
+									<label>详细地址:</label>
+									<input type="text" name="blogs_address" id="blogs_address" v-model="address" @blur="check_address">
+									<span class="error_tip" v-show="error_address">请输入详细地址</span>
+								</li>
+								<li class="cre_sub">
+									<input type="submit" value="创 建">
+								</li>
+							</ul>
+						</form>
+					</div>
 				</div>
-				<div class="reg_form clearfix">
-					<form method="post" class="register_form" @submit="on_submit">
-						{{ csrf_input }}
-						<ul>
-							<li>
-								<label>内容:</label>
-								<input type="text" name="blogs" id="blogs" v-model="contents" @blur="check_contents">
-								<span class="error_tip" v-show="error_contents">请输入您的需求</span>
-							</li>
-							<li>
-								<label>时间:</label>
-								<input type="text" name="blogs_time" id="blogs_time" v-model="time" @blur="check_time">
-								<span class="error_tip" v-show="error_time">请输入您需要需求的时间</span>
-							</li>
-							<li>
-                                <div class="form_group">
-                                    <label>地址：</label>
-                                    <select name="province" v-model="form_address.province_id">
-                                        <option v-for="province in provinces" :value="province.id">[[ province.name ]]</option>
-                                    </select>
-                                    <select name="city" v-model="form_address.city_id">
-                                        <option v-for="city in cities" :value="city.id">[[ city.name ]]</option>
-                                    </select>
-                                    <select name="district" v-model="form_address.district_id">
-                                        <option v-for="district in districts" :value="district.id">[[ district.name ]]</option>
-                                    </select>
-                                </div>
-							</li>
-							<li>
-								<label>详细地址:</label>
-								<input type="text" name="blogs_address" id="blogs_address" v-model="address" @blur="check_address">
-								<span class="error_tip" v-show="error_address">请输入详细地址</span>
-							</li>
-							<li class="reg_sub">
-								<input type="submit" value="创 建">
-							</li>
-						</ul>
-					</form>
+			</div>
+			<div class="footer">
+				<div class="foot_link">
+					<a href="#">关于我们</a>
+					<span>|</span>
+					<a href="#">联系我们</a>
+					<span>|</span>
+					<a href="#">招聘人才</a>
+					<span>|</span>
+					<a href="#">友情链接</a>
 				</div>
+				<p>萌宠乐园******公司</p>
+				<p>电话：******    备案许可证号：*******号</p>
 			</div>
 		</div>
     </div>
-
-
-	<div class="footer">
-		<div class="foot_link">
-			<a href="#">关于我们</a>
-			<span>|</span>
-			<a href="#">联系我们</a>
-			<span>|</span>
-			<a href="#">招聘人才</a>
-			<span>|</span>
-			<a href="#">友情链接</a>
-		</div>
-		<p>萌宠乐园******公司</p>
-		<p>电话：******    备案许可证号：*******号</p>
-	</div>
-	<script type="text/javascript" src="../static/js/host.js"></script>
 	<script type="text/javascript" src="../static/js/create_blogs.js"></script>
 </body>
 </html>

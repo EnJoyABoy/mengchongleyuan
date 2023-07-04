@@ -1,0 +1,157 @@
+/* 把标签默认的间距设为0 */
+body,ul,ol,p,h1,h2,h3,h4,h5,h6,dl,dd,select,input,textarea,form{margin:0;padding:0}
+
+/* 去掉列表默认的图标 */
+ul,ol{list-style:none;}
+/* 顶部样式 */
+.header{
+	background: #4e4e4e;
+	width: 100vw;
+	height: 40px;
+}
+
+.header_left{
+	float: left;
+	font-size: 20px;
+	margin-left: 2vw;
+	margin-top: 1vh;
+	color: #3eb8e9;
+}
+
+.header_right{
+	float: right;
+	height: 40px;
+}
+
+.header_right ul{
+	margin-top: 0;
+}
+
+.header_link{
+	margin-right: 3vw;
+	font-size: 25px;
+	display: inline-block;
+	position: relative;
+}
+
+.header_link a{
+	color: #3eb8e9;
+	text-decoration: none;
+}
+
+/*主体内容*/
+.body{
+	width: 100vw;
+	height: 94vh;
+	overflow: hidden;
+	background-image: url(../images/mengchong.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.create_form_bg{
+	width: 100vw;
+	height: 70vh;
+	margin-top: 10vh;
+}
+
+.create_form{
+	overflow:auto;
+	justify-content: center;
+	align-items: center;
+	width:440px;
+	height:440px;
+	border:1px solid #c6c6c5;
+	background-color:#fff;
+	margin: auto;
+	border-radius: 16px;
+}
+
+.cre_title{
+	width:380px;
+	height:50px;
+	float:left;
+	margin-left:30px;
+	border-bottom:1px solid #e0e0e0
+}
+
+.cre_title h1{
+	height:50px;
+	line-height:50px;
+	float:left;
+	font-size:24px;
+	color:#a8a8a8;
+	font-weight:bold;
+}
+
+.cre_form{
+	width:380px;
+	margin:30px 0 0 30px;
+	float:left;
+	position:relative;
+}
+
+.cre_form li{
+	height:70px;
+}
+
+.cre_form li label{
+	width:75px;
+	height:40px;
+	line-height:40px;
+	float:left;
+	font-size:14px;
+	color:#a8a8a8;
+	text-align:right;
+	padding-right:10px;
+}
+
+.cre_form li input{
+	width:288px;
+	height:38px;
+	border:1px solid #e0e0e0;
+	float:left;
+	outline:none;
+	text-indent:10px;
+	background-color:#f8f8f8
+}
+
+.cre_form li.cre_sub input{
+	width:380px;
+	height:40px;
+	background-color:#ff5757;
+	font-size:18px;
+	color:#fff;
+	cursor:pointer;
+}
+
+.cre_form li .error_tip{
+	float:left;
+	height:30px;
+	line-height:30px;
+	margin-left:87px;
+	color:#e62e2e;
+}
+
+/* 页尾 */
+.footer{
+	border-top:1px;
+	margin:30px 0;
+}
+
+.foot_link{
+	text-align:center;
+	margin-top:30px;
+}
+
+.foot_link a{
+	color: #f9f9f9;
+	text-decoration: none;
+}
+
+.footer p{
+	text-align:center;
+	margin-top:5px;
+	color: #f9f9f9;
+}

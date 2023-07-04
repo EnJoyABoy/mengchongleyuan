@@ -3,60 +3,94 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>萌宠乐园-登录</title>
-	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/login.css">
 	<script type="text/javascript" src="../static/js/vue-2.5.16.js"></script>
+	<script type="text/javascript" src="../static/js/host.js"></script>
     <script type="text/javascript" src="../static/js/axios-0.18.0.min.js"></script>
 </head>
 <body>
 	<div id="app">
-		<div class="login_form_bg">
-			<div class="login_form_wrap clearfix">
-				<div class="login_form fr">
-					<div class="login_title clearfix">
+		<div class="header">
+			<div class="header_left">
+				<div>欢迎来到萌宠乐园！</div>
+			</div>
+
+			<div v-if="username" class="header_right">
+				<ul>
+					<li class="header_link">
+						<a href="index.html">首页</a>
+					</li>
+					<li class="header_link">
+						<a href="create_blogs.html">发布</a>
+					</li>
+					<li class="header_link">
+						<a href="myblogs.html">我的发布</a>
+					</li>
+					<li class="header_link">
+						<a href="{{ url('users:logout') }}">退出</a>
+					</li>
+				</ul>
+			</div>
+			<div v-else class="header_right">
+				<ul>
+					<li class="header_link">
+						<a href="index.html">首页</a>
+					</li>
+					<li class="header_link">
+						<a href="login.html">登录</a>
+					</li>
+					<li class="header_link">
+						<a href="register.html">注册</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="body">
+			<div class="login_form_bg">
+				<div class="login_form">
+					<div class="login_title">
 						<h1>账户登录</h1>
 					</div>
-					<div class="form_con">
-						<div class="form_input cur">
-							<form method="post" id="login-form" @submit="on_submit">
-								{{ csrf_input }}
-								<input type="text" name="username" class="name_input" placeholder="请输入用户名或手机号" v-model="username" @blur="check_username">
-								<div  class="user_error" v-show="error_username">[[ error_username_message ]]</div>
-								<input type="password" name="password" class="pass_input" placeholder="请输入密码" v-model="password" @blur="check_pwd">
-								<div  class="pwd_error" v-show="error_password">[[ error_password_message ]]</div>
-								<div class="more_input clearfix">
-								<input type="checkbox" name="remembered">
-								<label>记住登录</label>
-								</div>
-								<input type="submit" value="登 录" class="input_submit">
-							</form>
-						</div>
+
+					<div class="form_input">
+						<form method="post" id="login-form" @submit="on_submit">
+							{{ csrf_input }}
+							<input type="text" name="username" class="name_input" placeholder="请输入用户名或手机号" v-model="username" @blur="check_username">
+							<div  class="user_error" v-show="error_username">[[ error_username_message ]]</div>
+							<input type="password" name="password" class="pass_input" placeholder="请输入密码" v-model="password" @blur="check_pwd">
+							<div  class="pwd_error" v-show="error_password">[[ error_password_message ]]</div>
+							<div class="more_input clearfix">
+							<input type="checkbox" name="remembered">
+							<label>记住登录</label>
+							</div>
+							<input type="submit" value="登 录" class="input_submit">
+						</form>
 					</div>
+
 					<div class="third_party">
 						<a href="#" class="qq_login">QQ</a>
 						<a href="#" class="weixin_login">微信</a>
 						<a href="register.html" class="register_btn">立即注册</a>
-						<a href="index.html" class="register_btn">首页</a>
 					</div>
+
 				</div>
 			</div>
-		</div>
-
-		<div class="footer">
-			<div class="foot_link">
-				<a href="#">关于我们</a>
-				<span>|</span>
-				<a href="#">联系我们</a>
-				<span>|</span>
-				<a href="#">招聘人才</a>
-				<span>|</span>
-				<a href="#">友情链接</a>
+			<div class="footer">
+				<div class="foot_link">
+					<a href="#">关于我们</a>
+					<span>|</span>
+					<a href="#">联系我们</a>
+					<span>|</span>
+					<a href="#">招聘人才</a>
+					<span>|</span>
+					<a href="#">友情链接</a>
+				</div>
+				<p>萌宠乐园******公司</p>
+				<p>电话：******    备案许可证号：*******号</p>
 			</div>
-			<p>萌宠乐园******公司</p>
-			<p>电话：******    备案许可证号：*******号</p>
 		</div>
 	</div>
-	<script type="text/javascript" src="../static/js/host.js"></script>
 	<script type="text/javascript" src="../static/js/login.js"></script>
 </body>
 </html>
