@@ -6,6 +6,8 @@ from apps.blogs.models import Blogs
 import logging
 from apps.areas.models import Area
 from apps.users.models import User
+import json
+from utils.response_code import RETCODE
 
 
 logger = logging.getLogger('django')
@@ -89,6 +91,7 @@ class GetmyblogsView(LoginRequiredMixin, View):
             blogs = Blogs.objects.filter(user=user)
             for blog in blogs:
                 blog_list.append({
+                    'id': blog.id,
                     'contents': blog.contents,
                     'times': blog.times,
                     'province': str(blog.province),
@@ -103,4 +106,32 @@ class GetmyblogsView(LoginRequiredMixin, View):
         }
         # 返回数据至Vue中
         return http.JsonResponse(context)
+
+
+# 实现内容删除
+class DelmyblogsView(LoginRequiredMixin, View):
+
+    def delete(self, request):
+        # 获取数据
+        data = json.loads(request.body.decode())
+        blog_user = data.get('blog_user')
+        blog_id = data.get('blog_id')
+
+        if request.user.is_authenticated and str(request.user) == str(blog_user):
+            # 查询数据库
+            try:
+                blog = Blogs.objects.get(id=blog_id)
+            except Blogs.DoesNotExist:
+                return http.JsonResponse({'code': RETCODE.NODATAERR, 'errmsg': '暂无此数据'})
+            # 删除
+            try:
+                blog.delete()
+            except Exception as e:
+                logger.error(e)
+                return http.JsonResponse({'code': RETCODE.DBERR, 'errmsg': '删除失败'})
+
+            # 返回响应
+            return http.JsonResponse({'code': RETCODE.OK, 'errmsg': 'ok'})
+        else:
+            return http.JsonResponse({'code': RETCODE.SESSIONERR, 'errmsg': 'fail'})
 

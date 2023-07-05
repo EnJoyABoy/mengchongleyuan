@@ -71,6 +71,14 @@ body{
 	margin-left: 1vw;
 }
 
+/* 按钮样式 */
+.del_blog{
+	float: right;
+	color: #9f9f9f;
+	margin-right: 1vw;
+	border-radius: 16px;
+}
+
 /* 页尾 */
 .footer{
 	border-top:1px;
