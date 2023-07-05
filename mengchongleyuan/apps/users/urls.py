@@ -8,4 +8,5 @@ urlpatterns = [
     re_path(r'^login', views.LoginView.as_view(), name='login'),
     re_path(r'^logout', views.LogoutView.as_view(), name='logout'),
     re_path(r'^myblogs', views.MyblogsView.as_view(), name='myblogs'),
+    re_path(r'^getcountblog', views.GetcountblogsView.as_view(), name='getcountblog'),
 ]

@@ -8,6 +8,7 @@ from django.contrib.auth import login, logout
 from django.contrib.auth import authenticate
 from apps.blogs.models import Blogs
 from django.contrib.auth.mixins import LoginRequiredMixin
+from utils.response_code import RETCODE
 
 
 logger = logging.getLogger('django')
@@ -133,3 +134,15 @@ class MyblogsView(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, 'myblogs.html')
 
+
+# 获取用户发布需求数量
+class GetcountblogsView(LoginRequiredMixin, View):
+
+    # 获取用户发布需求数量
+    def get(self, request):
+        try:
+            count = Blogs.objects.filter(user_id=request.user).count()
+            return http.JsonResponse({'code': RETCODE.OK, 'count': count})
+        except Exception as e:
+            logger.error(e)
+            return http.JsonResponse({'code': RETCODE.DBERR, 'errmsg': '数据库异常'})
