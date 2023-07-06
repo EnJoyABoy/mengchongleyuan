@@ -1,0 +1,67 @@
+/* 顶部样式 */
+.header{
+	background: #4e4e4e;
+	width: 100vw;
+	height: 40px;
+}
+
+.header_left{
+	float: left;
+	font-size: 20px;
+	margin-left: 2vw;
+	margin-top: 1vh;
+	color: #3eb8e9;
+}
+
+.header_right{
+	float: right;
+	height: 40px;
+}
+
+.header_right ul{
+	margin-top: 0;
+}
+
+.header_link ul, .header_link{
+	font-size: 25px;
+	list-style: none;
+	padding: 0;
+	float: left;
+}
+
+/* 设置二级菜单绝对定位，并隐藏 */
+.header_link ul{
+	position: absolute;
+	display: none;
+}
+
+/* 一级菜单 */
+.header_link a{
+	width: 120px;
+	line-height: 40px;
+	color: #3eb8e9;
+	text-align: center;
+	display: block;
+	text-decoration: none;
+}
+
+/* 二级菜单 */
+.header_link ul li a{
+	width: 120px;
+	line-height: 36px;
+	color: #3eb8e9;
+	background-color: #4e4e4e;
+	text-align: center;
+	border-top: none;
+	display: block;
+}
+
+/* 鼠标放在一级菜单上，显示二级菜单 */
+.header_link:hover ul{
+	display: block;
+}
+
+/* 鼠标放上去的样式 */
+.header_link a:hover, .header_link ul li a:hover{
+	color: aquamarine;
+}

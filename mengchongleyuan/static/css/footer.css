@@ -1,0 +1,21 @@
+/* 页尾 */
+.footer{
+	border-top:1px;
+	margin:30px 0;
+}
+
+.foot_link{
+	text-align:center;
+	margin-top:30px;
+}
+
+.foot_link a{
+	color: #f9f9f9;
+	text-decoration: none;
+}
+
+.footer p{
+	text-align:center;
+	margin-top:5px;
+	color: #f9f9f9;
+}

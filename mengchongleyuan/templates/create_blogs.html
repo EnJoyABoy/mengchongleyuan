@@ -4,6 +4,8 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>萌宠乐园-创建</title>
 	<link rel="stylesheet" type="text/css" href="../static/css/create_blogs.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/header.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/footer.css">
 	<script type="text/javascript" src="../static/js/host.js"></script>
 	<script type="text/javascript" src="../static/js/common.js"></script>
 	<script type="text/javascript" src="../static/js/vue-2.5.16.js"></script>
@@ -25,10 +27,11 @@
 						<a href="create_blogs.html">发布</a>
 					</li>
 					<li class="header_link">
-						<a href="myblogs.html">我的发布</a>
-					</li>
-					<li class="header_link">
-						<a href="{{ url('users:logout') }}">退出</a>
+						<a href="">我的</a>
+						<ul>
+							<li><a href="myblogs.html">内容管理</a></li>
+							<li><a href="{{ url('users:logout') }}">退出登录</a></li>
+						</ul>
 					</li>
 				</ul>
 			</div>
