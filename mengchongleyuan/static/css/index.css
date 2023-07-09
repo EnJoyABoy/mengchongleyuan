@@ -24,6 +24,7 @@ body{
 	margin-top: 3vh;
 	border-radius: 16px;
 	background: #9f9f9f;
+	opacity: 0.6;
 }
 
 .blogs{
@@ -31,7 +32,6 @@ body{
 	font-size: 20px;
 	background: #f9f9f9;
 	width: 57vw;
-	height: 140px;
 	border-radius: 16px;
 	margin-left: 1vw;
 }
