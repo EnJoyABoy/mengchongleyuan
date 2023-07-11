@@ -146,3 +146,17 @@ class GetcountblogsView(LoginRequiredMixin, View):
         except Exception as e:
             logger.error(e)
             return http.JsonResponse({'code': RETCODE.DBERR, 'errmsg': '数据库异常'})
+
+
+# 在注册时Vue发起ajax请求验证数据库中是否有相同用户名
+class UsermobileCountView(View):
+
+    def get(self, request, usermobile):
+        # 查询数据库,通过查询记录的count来判断是否重复 0表示没有重复 1表示重复
+        try:
+            count = User.objects.filter(mobile=usermobile).count()
+        except Exception as e:
+            logger.error(e)
+            return http.JsonResponse({'code': 400, 'errmsg': '数据库异常'})
+        # 返回相应
+        return http.JsonResponse({'code': 0, 'count': count})

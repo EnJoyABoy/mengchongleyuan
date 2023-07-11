@@ -79,13 +79,29 @@ var vm = new Vue({
         },
         // 检查手机号
         check_mobile: function () {
-            var re = /^1[345789]\d{9}$/;
+            var re = /^1[3456789]\d{9}$/;
             if (re.test(this.mobile)) {
                 this.error_mobile = false;
             } else {
                 this.error_mobile_message = '您输入的手机号格式不正确';
                 this.error_mobile = true;
             }
+            //    在这里发送一个axios 请求
+            //    1.组织url
+            let url = '/usermobile/'+this.mobile+'/count/';
+            //    2.发送请求
+            axios.get(url).then(response=>{
+                //    3.请求成功的回调的业务逻辑
+                // console.log(response)
+                if(response.data.count == 0){
+                    this.error_mobile=false
+                }else{
+                    this.error_mobile=true;
+                    this.error_mobile_message='手机号已注册';
+                }
+            }).catch(error=>{
+
+            })
         },
         // 表单提交
         on_submit(){
