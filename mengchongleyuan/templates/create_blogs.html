@@ -73,13 +73,13 @@
 								<li>
 									<div class="form_group">
 										<label>地址：</label>
-										<select name="province" v-model="form_address.province_id">
+										<select class="address_box" name="province" v-model="form_address.province_id">
 											<option v-for="province in provinces" :value="province.id">[[ province.name ]]</option>
 										</select>
-										<select name="city" v-model="form_address.city_id">
+										<select class="address_box" name="city" v-model="form_address.city_id">
 											<option v-for="city in cities" :value="city.id">[[ city.name ]]</option>
 										</select>
-										<select name="district" v-model="form_address.district_id">
+										<select class="address_box" name="district" v-model="form_address.district_id">
 											<option v-for="district in districts" :value="district.id">[[ district.name ]]</option>
 										</select>
 									</div>
