@@ -148,7 +148,7 @@ class GetcountblogsView(LoginRequiredMixin, View):
             return http.JsonResponse({'code': RETCODE.DBERR, 'errmsg': '数据库异常'})
 
 
-# 在注册时Vue发起ajax请求验证数据库中是否有相同用户名
+# 在注册时Vue发起ajax请求验证数据库中是否有相同手机号
 class UsermobileCountView(View):
 
     def get(self, request, usermobile):
