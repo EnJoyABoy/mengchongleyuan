@@ -63,10 +63,9 @@
 							<div  class="user_error" v-show="error_username">[[ error_username_message ]]</div>
 							<input type="password" name="password" class="pass_input" placeholder="请输入密码" v-model="password" @blur="check_pwd">
 							<div  class="pwd_error" v-show="error_password">[[ error_password_message ]]</div>
-							<div class="more_input clearfix">
-							<input type="checkbox" name="remembered">
-							<label>记住登录</label>
-							</div>
+							<input type="text" name="sms_code" class="img_input" placeholder="短信验证码">
+							<a class="get_img_code">获取验证码</a>
+							<div  class="error_img">输入验证码</div>
 							<input type="submit" value="登 录" class="input_submit">
 						</form>
 					</div>

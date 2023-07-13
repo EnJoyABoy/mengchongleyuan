@@ -90,7 +90,7 @@ body{
 	height:40px;
 	position:absolute;
 	left:0;
-	top:180px;
+	top:195px;
 	background-color:#ff5757;
 	color:#fff;
 	font-size:22px;
@@ -98,21 +98,42 @@ body{
 	cursor:pointer;
 }
 
-.more_input{
-	position:absolute;
+.img_input{
+	width:186px;
+	height:36px;
+	border:1px solid #e0e0e0;
+	background:280px -95px no-repeat #f8f8f8;
+	outline:none;
+	font-size:14px;
+	text-indent:10px;
+	position: absolute;
 	left:0;
 	top:130px;
-	width:100%
 }
 
-.more_input input{
-	float:left;
-	margin-top:5px;
+.get_img_code{
+	width:106px;
+	height:36px;
+	border:1px solid #e0e0e0;
+	background:280px -95px no-repeat #f8f8f8;
+	outline:none;
+	font-size:14px;
+	text-indent:10px;
+	position: absolute;
+	left:0;
+	top:130px;
+	float: left;
+	text-align:center;
+	line-height:40px;
+	margin-left:200px;
+	color:#333;
 }
 
-.more_input label{
-	float:left;
-	margin-left:10px;
+.error_img{
+	color:#f00;
+	position:absolute;
+	left:0;
+	top:175px;
 }
 
 .third_party{
