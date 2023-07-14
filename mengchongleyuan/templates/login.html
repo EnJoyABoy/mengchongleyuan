@@ -63,9 +63,9 @@
 							<div  class="user_error" v-show="error_username">[[ error_username_message ]]</div>
 							<input type="password" name="password" class="pass_input" placeholder="请输入密码" v-model="password" @blur="check_pwd">
 							<div  class="pwd_error" v-show="error_password">[[ error_password_message ]]</div>
-							<input type="text" name="sms_code" class="img_input" placeholder="短信验证码">
-							<a class="get_img_code">获取验证码</a>
-							<div  class="error_img">输入验证码</div>
+							<input type="text" name="image_code" class="img_input" placeholder="短信验证码" v-model="image_code" @blur="check_image_code">
+							<img :src="image_code_url" name="image_code_id" @click="generate_image_code" alt="获取验证码" class="get_img_code">
+							<div  class="error_img" v-show="error_img_code">[[ error_image_code_message ]]</div>
 							<input type="submit" value="登 录" class="input_submit">
 						</form>
 					</div>

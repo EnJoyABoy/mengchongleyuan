@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'apps.users.apps.UsersConfig',
     'apps.areas.apps.AreasConfig',
     'apps.blogs.apps.BlogsConfig',
+    'apps.verifications.apps.VerificationsConfig',
 ]
 
 MIDDLEWARE = [
@@ -102,6 +103,26 @@ DATABASES = {
         'NAME': 'mengchongleyuan',
     }
 }
+
+CACHES = {
+    "default": {  # 默认
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/0",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+    "code": {  # 图片验证码
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+}
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "code"
 
 
 # Password validation

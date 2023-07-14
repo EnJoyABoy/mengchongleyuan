@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include(('apps.users.urls', 'users'), namespace='users')),
     path('', include(('apps.blogs.urls', 'blogs'), namespace='blogs')),
     path('', include(('apps.areas.urls', 'areas'), namespace='areas')),
+    path('', include(('apps.verifications.urls', 'verifications'), namespace='verifications')),
 ]
