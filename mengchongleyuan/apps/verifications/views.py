@@ -2,8 +2,12 @@ from django import http
 from django.views import View
 from libs.captcha.captcha import captcha
 from django_redis import get_redis_connection
+from utils.response_code import RETCODE
+import logging
+logger = logging.getLogger('django')
 
 
+# 获取图片验证码
 class ImageCodeView(View):
 
     def get(self, request, uuid):
@@ -17,12 +21,7 @@ class ImageCodeView(View):
         return http.HttpResponse(image, content_type='image/jpeg')
 
 
-from django_redis import get_redis_connection
-from utils.response_code import RETCODE
-import logging
-logger = logging.getLogger('django')
-
-
+# 图片验证码验证
 class VerificationImgCodeView(View):
     def get(self, request):
         # 接收参数(图片验证码,uuid)
